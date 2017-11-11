@@ -2,99 +2,23 @@
  <meta charset="ISO-8859-1">
 <head>
 
-<title>Orçamento - Loja Tal</title>
+<title>Controle orçamentario</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="cssorcamento.css">
-<link rel="stylesheet" type="text/css" media="print" href="print.css">
 <link rel="icon" type="image/png" href="favicon.ico">
 <script src="alljavascript.js"></script>
-<!-- CSV file generation uses code from here: https://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server -->
-
 </head>
 <body>
 
-  <table class="cabecalho">
-   <tr>
-     <td colspan="4"><img src="logo-magedo-orcamento.jpg" alt="Logomarca da sua empresa" class="logomarca"></td>
-    <td colspan="1"><p class="impressao"><input type="submit" value="Imprimir pagina" class="imprimir" onclick="imprimirpagina();"></p>
-      Nome do Arquivo: <input type="text" name="nomedoarquivo" id="nomedoarquivo" class="nomedoarquivo" value="Nome do Arquivo" onkeyup="auto_grow(this)"> <input type="submit" value="Salvar em CSV" class="gerararquivo" onclick="gerarcsv();">
-     </td>
-   </tr>
-   <tr>
-     <th colspan="5"><br></th>
-   </tr>
-   <tr>
-     <td colspan="5">Loja xxx LTDA ME<br>
-        Rua tal, bairro tal - Cidade tal (Estado)<br>
-        (ddd)xxxx-xxxx e (ddd)9 xxxx-xxxx
+<div id="containerform" class="containerform">
+       Produto/serviço: <input type="text" class="nomeproduto" size="" id="nomeproduto" placeholder="Produto/serviço" onkeyup="auto_grow(this)"><br><br>
+       Custo R$         <input type="text" class="custo" size="8" id="custo" placeholder="87.99" onkeyup="auto_grow(this)"><br><br>
+       Local de compra: <input type="text" class="localdecompra" size="" id="localdecompra" placeholder="..Loja.." onkeyup="auto_grow(this)"><br><br>
+       <input type="submit" value="SALVAR" class="salvardados" onclick="gerararray();"></p><br><br>
+       <p class="textolink">Desenvolvido por <a href="http://fritzenlab.com.br/" class="links" target="_blank">Clovis Fritzen</a></p>
+</div>
 
-     </td>
-    </tr>
-   <tr>
-     <td colspan="5"><br><br></td>
-   </tr>
-<tr class="cabecalhocontato">
-     <td colspan="5">Aos cuidados de:
-       <select name="tratamento" class="tratamento" id="tratamento">
-         <option value=" ">-</option>
-         <option value="Sr">Sr. </option>
-         <option value="Sra">Sra. </option>
-         <option value="Srs">Srs. </option>
-       </select>
-       <input type="text" class="nomecliente" size="" id="nomecliente" placeholder="Nome do cliente" onkeyup="auto_grow(this)"><br>
-       E-mail: <input type="text" class="emailcliente" size="" id="emailcliente" placeholder="exemplo@exemplo.com.br" onkeyup="auto_grow(this)"><br><br>
-        Rua/Avenida: <input type="text" name="ruaavenida" class="ruaavenida" size="" id="nomerua" placeholder="Nome da rua" onkeyup="auto_grow(this)">, <br>
-        Bairro: <input type="text" name="bairro" class="nomebairro" size="" id="nomebairro" placeholder="Nome do bairro" onkeyup="auto_grow(this)">, <br>
-        Cidade: <input type="text" name="cidade" class="nomecidade" size="" id="nomecidade" placeholder="Cidade" onkeyup="auto_grow(this)"> (<input type="text" name="estado" size="2" class="nomeestado" id="nomeestado" placeholder="SC">)<br>
-        Telefones: (<input type="text" name="ddd" size="3" class="dddfixo" id="dddfixo" placeholder="ddd">)<input type="text" name="telefonefixo" size="" class="fonefixo" id="fonefixo" placeholder="xxxx-xxxx" onkeyup="auto_grow(this)"> e (<input type="text" name="celular" size="3" class="dddcelular" id="dddcelular" placeholder="ddd">)<input type="text" name="telefonecelular" class="telcelular" size="" id="telcelular" placeholder="9xxxx-xxxx" onkeyup="auto_grow(this)">
 
-     </td>
-    </tr>
-<td colspan="5"><br><br></td>
-   <tr>
-     <td colspan="5">Segue orcamento (<input type="text" class="tipodeproduto" size="" id="tipodeproduto" placeholder="Tipo de orçamento" onchange="nomeandoarquivo();" onkeyup="auto_grow(this)">), conforme solicitado:</td>
-   </tr>
-   <tr><td colspan="5"><br></td></tr>
- </table>
- <table class="tabelaorc" id="tabelaorc">
-   <tr class="cabecalhodescricao">
-      <td>Descricao</td>
-      <td>Quantidade</td>
-      <td>R$ unitario</td>
-      <td class="rstotal">R$ total</td>
-   </tr>
-  <tr class="">
-    <td class="" colspan="5"><br></td>
-  </tr>
-   <tr class="totalizador">
-      <td colspan="2"></td>
-      <td class="totalfinal">Total R$= </td>
-      <td><input type="text" class="somatoriofinal" name"resultadofinal" size="7" id="resultadofinal"></td>
-   </tr>
-   <tr class="adicionarlinha"><td colspan="5" class="espacamentotabela"><input type="submit" value="Adicionar linha" class="novalinha" onclick="adicionarlinha();"/></td></tr>
-   <tr class="">
-     <td colspan="5"><br></td>
-  </tr>
-  <tr>
-    <td colspan="5">Observações:<br></td>
-  </tr>
-  <tr>
-    <td colspan="5"><textarea rows="4"  class="observacoesfinais" cols="" name="observacoes" id="observacoesfinais"></textarea></td>
-  </tr>
-   <tr class="">
-     <td colspan="5"><br></td>
-  </tr>
-  <tr>
-    <td colspan="5">Condições de Pagamento:<br></td>
-  </tr>
-  <tr>
-    <td colspan="5"><textarea rows="4"  cols="" name="condicoes" class="condicoespagto" id="condicoespagto"></textarea></td>
-  </tr>
-  <tr>
-    <td colspan="5"><br></td>
-  </tr>
-
- </table>
  </body>
 </head>
 </html>

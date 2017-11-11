@@ -1,86 +1,52 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-    background-color: #ffffff;
+    font-size: 2em;
+    background-color: #AEC0C6;
     padding: 0px;
     margin-top: 2px;
     margin-left: 2px;
 }
 
-logomarca{
-display: block;
-margin: 0 auto;
 
-}
-.tabelaorc {
-  border: 0px solid #000000;
-  background-color: #ffffff;
-  border-collapse: collapse;
-  padding: 0px;
-  width: 720px;
-}
-.cabecalho {
-  border: 0px solid #000000;
-  background-color: #ffffff;
-  border-collapse: collapse;
-  padding: 0px;
-  width: 720px;
-}
+.nomeproduto, .custo, .localdecompra {
 
-
-.botaoenviar{
-  float: right;
-}
-
-descricao{
-width: 100%;
-float: center;
-}
-
-p.impressao{
-  align-items: center;
-
-}
-
-.nomedoarquivo, .tratamento, .nomecliente, .emailcliente, .ruaavenida, .nomebairro, .nomecidade, .nomeestado, .dddfixo, .fonefixo, .dddcelular, .telcelular, .tipodeproduto, .somatoriofinal, .observacoesfinais, .condicoespagto{
-
-  background-color: #f27313;
+  background-color: #EF7A00;
   border: 0px;
   border-bottom: 1px solid #000000;
   box-sizing: border-box;
-  color: black;
+  color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
-	
+
 
 }
-.imprimir, .gerararquivo, .novalinha {
-  background-color: #f27313;
-  border: 2px solid black;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: black;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+.containerform {
+  background: #028092;
+  position:absolute;
+  color:#fff;
+  top:50%;
+  left:50%;
+  padding:20px;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border: 1px solid #000000;
 }
-.observacoesfinais, .condicoespagto {
-    width: 100%;
+.salvardados{
+  position:absolute;
+  right:10px;
+  background-color: #EF7A00;
+  border: 0px solid #000000;
+  border-bottom: 1px solid #000000;
+  font-size: 1.1em;
+  color: #ffffff;
 }
-.produtodinamico, .qtdedinamica, .valorunitdinamico, .resultmultiplicdinamico {
-  border: 1px solid #f27313;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: black;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+a.links:link, a.links:visited, a.links:hover, a.links:active {
+  color: #ffffff;
+  //font-size: 0.6em;
 }
-
-.produtodinamico tr, .qtdedinamica tr, .valorunitdinamico tr, .resultmultiplicdinamico tr, .totalizador {
-
-  box-sizing: border-box;
-}
-.cabecalhocontato, .cabecalhodescricao {
-	border-top: 1px solid #f27313;
-	border-bottom: 1px solid #f27313;
-  border-radius: 5px;
+p.textolink {
+  color: #000000;
+  font-size: 0.6em;
+  padding: 0px;
 }
