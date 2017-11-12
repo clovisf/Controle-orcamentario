@@ -1,0 +1,12 @@
+<form id="formulariotop">
+<div id="containerform" class="containerform">
+       Produto/serviço: <input type="text" name="nomeproduto" class="nomeproduto" size="" id="nomeproduto" placeholder="Produto/serviço" onkeyup="auto_grow(this)"><br><br>
+       Custo R$         <input type="text" name="custo" class="custo" size="8" id="custo" placeholder="87.99" onkeyup="auto_grow(this)"><br><br>
+       Local de compra: <input type="text" name="localdecompra" class="localdecompra" size="" id="localdecompra" placeholder="..Loja.." onkeyup="auto_grow(this)"><br><br>
+       <button type="submit" id="salvardados" class="salvardados" onclick="gerararray();">Salvar</button><br><br>
+       <p class="textolink">Desenvolvido por <a href="http://fritzenlab.com.br/" class="links" target="_blank">Clovis Fritzen</a></p>
+</div>
+
+</form>
+
+https://docs.google.com/forms/d/e/1FAIpQLSfFeIg1u5WWkcNE5Q2UONgZ9GTBekbVFJtZXbYvtCest7m7fQ/viewform?embedded=true

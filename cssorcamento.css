@@ -8,7 +8,7 @@ body {
 }
 
 
-.nomeproduto, .custo, .localdecompra {
+.produto, .preco, .local {
 
   background-color: #EF7A00;
   border: 0px;
@@ -17,10 +17,11 @@ body {
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
-
-
 }
-.containerform {
+.campodeform{
+  border: 0px;
+}
+.containerform, .form {
   background: #028092;
   position:absolute;
   color:#fff;
@@ -33,9 +34,16 @@ body {
   border: 1px solid #000000;
   display: block;
 }
-.salvardados{
+.send {
   position:absolute;
   right:10px;
+  background-color: #EF7A00;
+  border: 0px solid #000000;
+  border-bottom: 1px solid #000000;
+  font-size: 1.1em;
+  color: #ffffff;
+}
+.usuario{
   background-color: #EF7A00;
   border: 0px solid #000000;
   border-bottom: 1px solid #000000;
@@ -47,7 +55,8 @@ a.links:link, a.links:visited, a.links:hover, a.links:active {
   //font-size: 0.6em;
 }
 p.textolink {
-  color: #000000;
+  color: #ffffff;
+
   font-size: 0.6em;
   padding: 0px;
 }

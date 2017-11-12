@@ -1,5 +1,6 @@
 ﻿<html>
  <meta charset="ISO-8859-1">
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
 
 <title>Controle orçamentario</title>
@@ -8,74 +9,70 @@
 <link rel="icon" type="image/png" href="favicon.ico">
 <script src="alljavascript.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript">
-// Variable to hold request
-var request;
-
-// Bind to the submit event of our form
-$("#foo").submit(function(event){
-
-    // Prevent default posting of form - put here to work in case of errors
-    event.preventDefault();
-
-    // Abort any pending request
-    if (request) {
-        request.abort();
-    }
-    // setup some local variables
-    var $form = $(this);
-
-    // Let's select and cache all the fields
-    var $inputs = $form.find("input, select, button, textarea");
-
-    // Serialize the data in the form
-    var serializedData = $form.serialize();
-
-    // Let's disable the inputs for the duration of the Ajax request.
-    // Note: we disable elements AFTER the form data has been serialized.
-    // Disabled form elements will not be serialized.
-    $inputs.prop("disabled", true);
-
-    // Fire off the request to /form.php
-    request = $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbwYxOvkf5lHEfahTzvPmxLThbxmbwvi0oZwQxNHaggujEIkzezI/exec",
-        type: "post",
-        data: serializedData
-    });
-
-    // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-    });
-
-    // Callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-    });
-
-    // Callback handler that will be called regardless
-    // if the request failed or succeeded
-    request.always(function () {
-        // Reenable the inputs
-        $inputs.prop("disabled", false);
-    });
-
-});
 
 </script>
 </head>
 <body>
-  <form id="foo">
-      <label for="bar">A bar</label>
-      <input id="bar" name="bar" type="text" value="" />
 
-      <input type="submit" value="Send" />
-  </form>
 
+        <form id="form" target="_self" onsubmit="" action="">
+          <div id="containerform" class="containerform">
+            <fieldset class="campodeform">
+              <select name="usuario" id="usuario" class="usuario">
+                <option value="Jessica">Jessica</option>
+                <option value="Clovis">Clovis</option>
+              </select>
+                <br><br>
+                <label>Produto: </label>
+                <input type="text" name="produto" class="produto" size="" id="produto" placeholder="Produto/serviço" onkeyup="auto_grow(this)">
+                <br><br>
+                <label>Preço R$: </label>
+                <input type="text" name="preco" class="preco" size="8" id="preco" placeholder="87.99" onkeyup="auto_grow(this)">
+                <br><br>
+                <label>Local da compra: </label>
+                <input type="text" name="local" class="local" size="" id="local" placeholder="..Loja.." onkeyup="auto_grow(this)">
+            </fieldset>
+            <br>
+                <button id="send" class="send" type="submit" onclick="gerararray();">
+                    Enviar
+                </button>
+                <p class="textolink">Desenvolvido por <a href="http://fritzenlab.com.br/" class="links" target="_blank">Clovis Fritzen</a></p>
+            </div>
+        </form>
+
+    <script type="text/javascript">
+                function postToGoogle() {
+                    var field2= $('#produto').val();
+                    var field3 = $('#preco').val();
+                    var field4 = $('#local').val();
+                    var field5 = $('#usuario').val();
+
+                    $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSfFeIg1u5WWkcNE5Q2UONgZ9GTBekbVFJtZXbYvtCest7m7fQ/formResponse",
+                    data: {"entry.1046099964": field2,
+                     "entry.1180997605": field3,
+                      "entry.1392149789": field4,
+                      "entry.1981583834": field5},
+                    type: "POST",
+                    dataType: "xml",
+                    statusCode: {
+                        0: function() {
+                            //Success message
+                        },
+                        200: function() {
+                            //Success Message
+                        }
+                    }
+                });
+                }
+
+                $(document).ready(function(){
+                    $('#form').submit(function() {
+                        postToGoogle();
+                        return false;
+                    });
+                });
+            </script>
  </body>
 </head>
 </html>

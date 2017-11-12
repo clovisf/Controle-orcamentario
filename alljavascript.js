@@ -1,15 +1,15 @@
 window.onload = function(){
-auto_grow(nomeproduto);
-auto_grow(localdecompra);
+auto_grow(produto);
+auto_grow(local);
 
 };
 
     function gerararray(){
 
       var gerararray = [];
-      var nomedoproduto = document.getElementById("nomeproduto").value;
-      var ocusto= document.getElementById("custo").value;
-      var olocaldecompra = document.getElementById("localdecompra").value;
+      var nomedoproduto = document.getElementById("produto").value;
+      var ocusto= document.getElementById("preco").value;
+      var olocaldecompra = document.getElementById("local").value;
 
 
       gerararray.push (nomedoproduto, ocusto, olocaldecompra);
