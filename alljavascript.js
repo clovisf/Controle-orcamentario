@@ -78,3 +78,17 @@ function auto_grow(element) {
     element.style.width = "auto";
     element.style.width = (element.scrollWidth)+'px';
 }
+var $form = $('form#formulariotop'),
+    url = 'https://script.google.com/macros/s/AKfycbwq8d7E4ZtITvUrhwlM00-b-y8LBuVIPylAEZWCaa7vd-iHohI/exec'
+
+$('#salvardados').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
