@@ -7,18 +7,36 @@
 <link rel="stylesheet" type="text/css" href="cssorcamento.css">
 <link rel="icon" type="image/png" href="favicon.ico">
 <script src="alljavascript.js"></script>
+
 </head>
 <body>
 <form id="formulariotop">
 <div id="containerform" class="containerform">
-       Produto/serviço: <input type="text" class="nomeproduto" size="" id="nomeproduto" placeholder="Produto/serviço" onkeyup="auto_grow(this)"><br><br>
-       Custo R$         <input type="text" class="custo" size="8" id="custo" placeholder="87.99" onkeyup="auto_grow(this)"><br><br>
-       Local de compra: <input type="text" class="localdecompra" size="" id="localdecompra" placeholder="..Loja.." onkeyup="auto_grow(this)"><br><br>
-       <input type="submit" value="SALVAR" class="salvardados" onclick="gerararray();"></p><br><br>
+       Produto/serviço: <input type="text" name="nomeproduto" class="nomeproduto" size="" id="nomeproduto" placeholder="Produto/serviço" onkeyup="auto_grow(this)"><br><br>
+       Custo R$         <input type="text" name="custo" class="custo" size="8" id="custo" placeholder="87.99" onkeyup="auto_grow(this)"><br><br>
+       Local de compra: <input type="text" name="localdecompra" class="localdecompra" size="" id="localdecompra" placeholder="..Loja.." onkeyup="auto_grow(this)"><br><br>
+       <button type="submit"id="salvardados" class="salvardados" onclick="gerararray();">Salvar</button><br><br>
        <p class="textolink">Desenvolvido por <a href="http://fritzenlab.com.br/" class="links" target="_blank">Clovis Fritzen</a></p>
 </div>
 
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+var $form = $('form#formulariotop'),
+    url = 'https://script.google.com/macros/s/AKfycbwq8d7E4ZtITvUrhwlM00-b-y8LBuVIPylAEZWCaa7vd-iHohI/exec'
+
+$('#salvardados').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
+
+</script>
  </body>
 </head>
 </html>
