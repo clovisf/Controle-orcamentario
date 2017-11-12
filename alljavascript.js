@@ -1,6 +1,7 @@
 window.onload = function(){
 auto_grow(produto);
 auto_grow(local);
+var a = document.getElementById("sucessodiv").style.display = "none";
 
 };
 
@@ -14,6 +15,7 @@ auto_grow(local);
 
       gerararray.push (nomedoproduto, ocusto, olocaldecompra);
       console.log(gerararray);
+      mostrar_sucesso();
 
     }
 
@@ -77,4 +79,13 @@ function nomeandoarquivo(month, day, year, nomecliente, nomebairro){
 function auto_grow(element) {
     element.style.width = "auto";
     element.style.width = (element.scrollWidth)+'px';
+}
+function mostrar_sucesso(){
+  var x = document.getElementById("sucessodiv");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        setTimeout(mostrar_sucesso, 4000);
+    } else {
+        x.style.display = "none";
+    }
 }
